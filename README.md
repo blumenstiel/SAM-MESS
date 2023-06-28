@@ -6,7 +6,7 @@ This directory contains the code for the MESS evaluation of SAM.
 
 ## Model
 
-SAM is developed for instance segmentation. 
+SAM is developed for instance segmentation (see https://segment-anything.com/). We use the implementation provided by the `transformers` package.
 In order to perform semantic segmentation, multiple visual prompts are provided, specifically, one prompt for each connected segment. 
 The prompts are oracle points or oracle bounding boxes (see [model/visual_prompts.py](model/visual_prompts.py) for details). 
 Next, the model combines all predicted segments of each class to perform semantic segmentation. 
@@ -20,7 +20,7 @@ Create a conda environment `sam` and install the required packages. See [mess/RE
 
 Prepare the datasets by following the instructions in [mess/DATASETS.md](mess/DATASETS.md). The `sam` env can be used for the dataset preparation. If you evaluate multiple models with MESS, you can change the `dataset_dir` argument and the `DETECTRON2_DATASETS` environment variable to a common directory (see [mess/DATASETS.md](mess/DATASETS.md) and [mess/eval.sh](mess/eval.sh), e.g., `../mess_datasets`). 
 
-The SAM weights are downloaded automaticly by the transformers package.
+The SAM weights are downloaded automatically by the `transformers` package.
 
 ## Evaluation
 To evaluate the SAM models on the MESS datasets, run
